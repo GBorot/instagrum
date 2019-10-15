@@ -17,6 +17,9 @@ gem 'devise', '~> 4.7', '>= 4.7.1'
 
 # upload images with cloudinary
 gem 'dotenv-rails', groups: [:development, :test]
+gem 'cloudinary', '~> 1.9.1'
+gem 'carrierwave', '~> 1.2'
+
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

@@ -14,6 +14,10 @@ gem 'puma', '~> 3.11'
 
 # user interface
 gem 'devise', '~> 4.7', '>= 4.7.1'
+
+# upload images with cloudinary
+gem 'dotenv-rails', groups: [:development, :test]
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'

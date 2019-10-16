@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_15_131923) do
+ActiveRecord::Schema.define(version: 2019_10_16_143746) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2019_10_15_131923) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string "image"
+    t.string "photo"
     t.integer "account_id"
     t.boolean "active"
     t.datetime "created_at", null: false

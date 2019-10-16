@@ -2,5 +2,11 @@
 
 <p class="lead">The best ever clone of Instagram!</p>
 
-<%= link_to "Sign Up", new_account_registration_path, class: "btn btn-success" %>
-<%= link_to "Sign In", new_account_session_path, class: "btn btn-secondary" %>
+
+
+<% if account_signed_in? %>
+  <%= link_to "Sign out", destroy_account_session_path(@account), method: :delete, class: "btn btn-secondary" %>
+<% else %>
+  <%= link_to "Sign Up", new_account_registration_path, class: "btn btn-success" %>
+  <%= link_to "Sign In", new_account_session_path, class: "btn btn-secondary" %>
+<% end %>

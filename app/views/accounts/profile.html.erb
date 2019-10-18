@@ -1,1 +1,14 @@
-<h1><%= @account.full_name %></h1>
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+
+    </div>
+    <div class="col-8 text-left">
+      <h1><%= @account.full_name %></h1>
+      <div class="profile-stas"><%= @account.posts.count %> posts</div>
+      <div class="profile-stas"><%= @account.total_followers %> followers</div>
+      <div class="profile-stas"><%= @account.total_following %> following</div>
+    </div>
+  </div>
+</div>
+

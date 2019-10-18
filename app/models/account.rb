@@ -8,7 +8,6 @@ class Account < ApplicationRecord
 
   mount_uploader :photo, PhotoUploader
 
-
   def full_name
     "#{first_name} #{last_name}"
   end

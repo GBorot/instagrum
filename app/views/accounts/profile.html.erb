@@ -1,14 +1,19 @@
 <div class="container">
   <div class="row">
     <div class="col-4">
-      <%= cl_image_tag @account.photo.url, class: "photo img-rounded" %>
+      <%= cl_image_tag @account.photo.url, class: "profile-photo img-rounded" %>
     </div>
     <div class="col-8 text-left">
       <h1><%= @account.full_name %></h1>
+      <div class="profile-stats"><%= @account.posts.count %> posts</div>
+      <div class="profile-stats"><%= @account.total_followers %> followers</div>
+      <div class="profile-stats"><%= @account.total_following %> following</div>
       <%= link_to "Edit Profile", edit_account_registration_path, class: "btn btn-secondary" %>
-      <div class="profile-stas"><%= @account.posts.count %> posts</div>
-      <div class="profile-stas"><%= @account.total_followers %> followers</div>
-      <div class="profile-stas"><%= @account.total_following %> following</div>
+
+      <p><%= @account.full_name %></p>
+      <!-- simple_format allows to multiline text -->
+      <p><%= simple_format @account.description %></p>
+      <p><%= link_to @account.website if @account.website.present? %></p>
     </div>
   </div>
 </div>

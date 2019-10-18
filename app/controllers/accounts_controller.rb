@@ -9,7 +9,7 @@ class AccountsController < ApplicationController
 
   def profile
     # user profile
-
+    @posts = @account.posts.active
   end
 
   def set_account

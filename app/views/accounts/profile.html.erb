@@ -16,5 +16,15 @@
       <p><%= link_to @account.website if @account.website.present? %></p>
     </div>
   </div>
+  <div class="row">
+    <% @posts.each do |post| %>
+      <div class="col-4">
+        <div class="insta-post">
+          <%= cl_image_tag post.photo, class: 'img img-fluid' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
 

@@ -1,16 +1,20 @@
 <%= "#{@posts.size.to_s} active posts found." %>
 
 <div class="container">
+  <!-- show all active posts -->
+
   <div class="row">
-    <div class="col-8">
-      <% @posts.each do |post| %>
+    <% @posts.each do |post| %>
+      <div class="col-8">
         <div class="insta-post">
           <div class='post-meta'><%= post.account.username %></div>
           <%= cl_image_tag post.photo, class: 'img img-fluid' %>
-        <% end %>
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
+  <!-- show account summary -->
+
   <div class="col-4">
     <div class="account-summary">
       <p><strong><%= current_account.username %></strong> <br>

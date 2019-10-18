@@ -1,4 +1,6 @@
 <div class="container">
+  <!-- show header profile -->
+
   <div class="row">
     <div class="col-4">
       <%= cl_image_tag @account.photo.url, class: "profile-photo img-rounded" %>
@@ -16,6 +18,8 @@
       <p><%= link_to @account.website if @account.website.present? %></p>
     </div>
   </div>
+  <!-- show posts of the profile -->
+
   <div class="row">
     <% @posts.each do |post| %>
       <div class="col-4">

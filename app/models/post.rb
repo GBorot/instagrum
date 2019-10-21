@@ -3,6 +3,8 @@ class Post < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   belongs_to :account
 
+  has_many :likes
+
   before_create :set_active
 
   scope :active, -> { where active: true }

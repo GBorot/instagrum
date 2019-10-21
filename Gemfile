@@ -19,6 +19,7 @@ gem 'devise', '~> 4.7', '>= 4.7.1'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 1.2'
+gem "mini_magick" # allows to resize all pic uploaded
 
 
 # Use SCSS for stylesheets

@@ -1,5 +1,5 @@
 .insta-post {
-  margin: 15px;
+  margin-bottom: 15px;
   img {
     // width: 500px;
     // height: 500px;
@@ -23,4 +23,10 @@
     border-radius: 50%;
     margin-right: 10px;
   }
+}
+
+.post-details {
+  background: #fff;
+  padding: 15px;
+  border: 1px solid #ddd;
 }

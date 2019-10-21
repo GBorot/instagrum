@@ -1,8 +1,13 @@
 <%= simple_form_for @post, html: { multipart: true } do |f| %>
 
-  <%= f.input :photo, class: "form-control" %>
-  <%= f.input :photo_cache, as: :hidden %>
+  <div class="form-group">
+    <%= f.input :photo, label: 'Photo', class: "form-control" %>
+    <%= f.input :photo_cache, as: :hidden %>
+  </div>
 
+  <div class="form-group">
+    <%= f.input :description, label: 'Description', class: "form-control" %>
+  </div>
   <%= f.submit "Save post", class: "btn btn-success" %>
 
 <% end %>

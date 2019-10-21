@@ -2,26 +2,32 @@
 
 <div class="container">
   <!-- show all active posts -->
-
   <div class="row">
-    <% @posts.each do |post| %>
-      <div class="col-8">
+    <div class="col-8">
+      <% @posts.each do |post| %>
         <div class="insta-post">
-          <div class='post-meta'><%= post.account.username %></div>
+          <div class='post-meta'>
+            <%= link_to cl_image_tag(post.account.photo.thumb.url), profile_path(post.account.username) %>
+            <%= link_to post.account.username, profile_path(post.account.username), class: "text-dark" %>
+          </div>
+
           <%= cl_image_tag post.photo, class: 'img img-fluid' %>
+
+          <div class="post-details">
+            <%= simple_format post.description %>
+          </div>
         </div>
-      </div>
-    <% end %>
-  </div>
-  <!-- show account summary -->
-
-  <div class="col-4">
-    <div class="account-summary">
-      <p><strong><%= current_account.username %></strong> <br>
-      <%= current_account.full_name %></p>
+      <% end %>
     </div>
-    <div class="follower-suggestions">
+  <!-- show account summary -->
+    <div class="col-4">
+      <div class="account-summary">
+        <p><strong><%= current_account.username %></strong> <br>
+        <%= current_account.full_name %></p>
+      </div>
+      <div class="follower-suggestions">
 
+      </div>
     </div>
   </div>
 </div>

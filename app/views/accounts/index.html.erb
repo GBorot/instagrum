@@ -27,11 +27,17 @@
   <!-- show account summary -->
     <div class="col-4">
       <div class="account-summary">
-        <p><strong><%= current_account.username %></strong> <br>
-        <%= current_account.full_name %></p>
+        <p>
+          <%= link_to cl_image_tag(current_account.photo.thumb.url, class: "img-circle"), profile_path(current_account.username) if current_account.photo.present? %>
+
+
+          <strong><%= current_account.username %></strong> <br>
+          <%= current_account.full_name %>
+        </p>
       </div>
       <div class="follower-suggestions">
-
+        <%= link_to 'View All', "#", class: 'float-right text-dark'  %>
+        <p class="text-muted">Suggestions for you</p>
       </div>
     </div>
   </div>

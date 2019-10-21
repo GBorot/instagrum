@@ -13,6 +13,11 @@
 
           <%= cl_image_tag post.photo, class: 'img img-fluid' %>
 
+          <div class="post-actions">
+            <span class="fa fa-heart like-post"></span>
+            <span class="fa fa-comment comment-post"></span>
+          </div>
+
           <div class="post-details">
             <p><strong><%= post.total_likes %> likes</strong></p>
             <p><strong><%= link_to post.account.username, profile_path(post.account.username), class: "text-dark"%></strong></p>

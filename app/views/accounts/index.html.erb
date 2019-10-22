@@ -14,6 +14,8 @@
           <%= cl_image_tag post.photo, class: 'img img-fluid' %>
 
           <div class="post-actions">
+            <!-- if account_id est égal à l'id du current account alors display full sinon display le vide comme dans Whisp -->
+            <% if @like.account_id == current_account.id %>
             <span class="fa fa-heart like-post"></span>
             <span class="fa fa-comment comment-post"></span>
           </div>

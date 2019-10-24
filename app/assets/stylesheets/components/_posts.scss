@@ -31,7 +31,16 @@
   border: 1px solid #ddd;
 }
 
+.post-actions {
+  margin-bottom: 20px;
+  i.active {
+    color: #555;
+  }
+}
+
 .action-btn > img {
   width: 30px;
   margin-right:10px;
+  cursor: pointer;
 }
+

@@ -13,18 +13,25 @@
 
           <%= cl_image_tag post.photo, class: 'img img-fluid' %>
 
-          <div class="post-actions">
-            <!-- if account_id est égal à l'id du current account alors display full sinon display le vide comme dans Whisp -->
-            <%# if @like.account_id == current_account.id %>
-              <%#= image_tag('heart_filled.svg') %>
-            <%# else %>
-
-            <%# end %>
-            <span class="action-btn like-post"><%= image_tag('heart.svg') %></span>
-            <span class="action-btn comment-post"><%= image_tag('comment.svg') %></span>
-          </div>
 
           <div class="post-details">
+            <div class="post-actions">
+              <!-- if account_id est égal à l'id du current account alors display full sinon display le vide comme dans Whisp -->
+              <%# if @like.account_id == current_account.id %>
+                <%#= image_tag('heart_filled.svg') %>
+              <%# else %>
+
+              <%# end %>
+
+              <% if post_liked_by_user?(post.id) %>
+                <span class="action-btn like-post"><%= image_tag('heart_filled.svg') %></span>
+              <% else %>
+                <span class="action-btn like-post"><%= image_tag('heart.svg') %></span>
+              <% end %>
+
+
+              <span class="action-btn comment-post"><%= image_tag('comment.svg') %></span>
+            </div>
             <p><strong><%= post.total_likes %> likes</strong></p>
             <p><strong><%= link_to post.account.username, profile_path(post.account.username), class: "text-dark"%></strong></p>
 

@@ -16,9 +16,12 @@
           <div class="post-actions">
             <!-- if account_id est égal à l'id du current account alors display full sinon display le vide comme dans Whisp -->
             <%# if @like.account_id == current_account.id %>
+              <%#= image_tag('heart_filled.svg') %>
+            <%# else %>
+
             <%# end %>
-            <span class="fa fa-heart like-post"></span>
-            <span class="fa fa-comment comment-post"></span>
+            <span class="action-btn like-post"><%= image_tag('heart.svg') %></span>
+            <span class="action-btn comment-post"><%= image_tag('comment.svg') %></span>
           </div>
 
           <div class="post-details">

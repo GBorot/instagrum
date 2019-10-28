@@ -3,16 +3,20 @@ class LikesController < ApplicationController
 
   def save_like
     @post = Like.new(post_id: params[:post_id], account_id: current_account.id)
+    @post.save!
+    redirect_to dashboard_path
 
-    respond_to do |format|
-      format.json {
-        if @like.save!
-          { success: true }
-        else
-          { success: false }
-        end
-      }
-    end
+    # faire en AJAX
+
+    # respond_to do |format|
+    #   format.js {
+    #     if @like.save!
+    #       { success: true }
+    #     else
+    #       { success: false }
+    #     end
+    #   }
+    # end
   end
 
 end

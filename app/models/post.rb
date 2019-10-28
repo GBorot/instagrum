@@ -14,7 +14,7 @@ class Post < ApplicationRecord
   end
 
   def liked?(account)
-    likes.any? {|like| like.account_id == account.id }
+    likes.any? { |like| like.account_id == account.id }
   end
 
   private

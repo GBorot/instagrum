@@ -13,6 +13,10 @@ class Post < ApplicationRecord
     0
   end
 
+  def liked?(account)
+    likes.any? {|like| like.account_id == account.id }
+  end
+
   private
 
   def set_active

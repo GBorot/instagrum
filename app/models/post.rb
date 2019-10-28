@@ -10,7 +10,7 @@ class Post < ApplicationRecord
   scope :active, -> { where active: true }
 
   def total_likes
-    0
+    likes.count
   end
 
   def liked?(account)

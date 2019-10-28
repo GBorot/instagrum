@@ -15,7 +15,7 @@
 
 
           <div class="post-details">
-            <div class="post-actions">
+            <div class="post-actions" data-id="<%= post.id %>">
               <!-- if account_id est égal à l'id du current account alors display full sinon display le vide comme dans Whisp -->
               <% if post.liked?(current_account) %>
                 <%= link_to like_post_path(post), class: "action-btn like-post" do %>

@@ -19,4 +19,9 @@ class LikesController < ApplicationController
     # end
   end
 
+  def delete_like
+    @post = Like.where(post_id: params[:post_id], account_id: current_account.id).destroy
+    @post.save!
+    redirect_to dashboard_path
+  end
 end

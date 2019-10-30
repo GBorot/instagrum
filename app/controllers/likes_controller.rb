@@ -32,11 +32,11 @@ class LikesController < ApplicationController
   def delete_like
 
 
-    if !@post.liked?(current_account)
+    unless @post.liked?(current_account)
       flash[:notice] = "Cannot unlike"
     else
-      @post.likes.destroy
-
+      # @like.destroy
+      @post.likes.delete(account_id: current_account.id)
     end
     redirect_to dashboard_path
   end

@@ -3,7 +3,7 @@ class Post < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   belongs_to :account
 
-  has_many :likes
+  has_many :likes, dependent: :destroy
 
   before_create :set_active
 

@@ -28,7 +28,7 @@
               <% end %>
               <span class="action-btn comment-post"><%= image_tag('comment.svg') %></span>
             </div>
-            <p><strong><%= post.total_likes %> likes</strong></p>
+            <p><strong><%= post.total_likes %> <%= (post.likes.count) <= 1 ? 'Like' : 'Likes'%></strong></p>
             <p><strong><%= link_to post.account.username, profile_path(post.account.username), class: "text-dark"%></strong></p>
 
             <%= simple_format post.description %>

@@ -15,6 +15,7 @@ class Post < ApplicationRecord
 
   def liked?(account)
     likes.any? { |like| like.account_id == account.id }
+    # Like.where(account_id: current_account.id, post_id: params[:post_id]).exists?
   end
 
   private

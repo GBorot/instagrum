@@ -18,7 +18,7 @@
             <div class="post-actions" data-id="<%= post.id %>">
               <!-- if account_id est égal à l'id du current account alors display full sinon display le vide comme dans Whisp -->
               <% if post.liked?(current_account) %>
-                <%= link_to unlike_post_path(post), class: "action-btn like-post" do %>
+                <%= link_to unlike_post_path(post, class: "action-btn like-post" do %>
                   <%= image_tag('heart_filled.svg') %>
                 <% end %>
               <% else %>

@@ -1,19 +1,10 @@
 class LikesController < ApplicationController
   before_action :authenticate_account!
-  before_action :find_post
+  before_action :find_post, :find_like
 
   def save_like
-    # @post = Like.new(post_id: params[:post_id], account_id: current_account.id)
-    # @post.save!
-    # redirect_to dashboard_path
+    @post.likes.create(account_id: current_account.id) unless @post.liked?(current_account)
 
-    if @post.liked?(current_account)
-      flash[:notice] = "You can't like more than once"
-    else
-      # @post = Like.new(post_id: params[:post_id], account_id: current_account.id)
-      # @post.save!
-      @post.likes.create(account_id: current_account.id)
-    end
     redirect_to dashboard_path
 
     # faire en AJAX
@@ -30,26 +21,22 @@ class LikesController < ApplicationController
   end
 
   def delete_like
+    @like.destroy unless @post.liked?(current_account)
 
-
-    unless @post.liked?(current_account)
-      flash[:notice] = "Cannot unlike"
-    else
-      # @like.destroy
-      @post.likes.delete(account_id: current_account.id)
-    end
+    # unless @post.liked?(current_account)
+    #   flash[:notice] = "Cannot unlike"
+    # else
+    #   @like.destroy
+    #   # @post.likes.delete(account_id: current_account.id
+    # end
     redirect_to dashboard_path
   end
 
-  # def delete_like
-  #   # @post = Like.where(post_id: params[:post_id], account_id: current_account.id).destroy
-  #   # @post.save!
-
-  #   like.destroy
-  #   redirect_to dashboard_path
-  # end
-
   private
+
+  def find_like
+    @like = Like.where(account_id: current_account.id, post_id: @post.id)
+  end
 
   def find_post
     @post = Post.find(params[:post_id])

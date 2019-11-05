@@ -8,7 +8,10 @@ Rails.application.routes.draw do
   get 'post/like/:post_id' => 'likes#save_like', as: :like_post
   get 'post/like/:post_id' => 'likes#delete_like', as: :unlike_post
 
-  resources :posts, only: [:new, :create, :show]
+
+  resources :posts, only: [:new, :create, :show] do
+    resources :likes, only: [:destroy]
+  end
 
   root to: 'public#homepage'
 end

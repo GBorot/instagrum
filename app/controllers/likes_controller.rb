@@ -21,8 +21,8 @@ class LikesController < ApplicationController
   end
 
 
-  def destroy(post)
-    @like.destroy if post.liked?(current_account)
+  def destroy(post, like)
+    like.destroy if post.liked?(current_account)
 
     # unless @post.liked?(current_account)
     #   flash[:notice] = "Cannot unlike"

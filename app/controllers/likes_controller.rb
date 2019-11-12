@@ -20,26 +20,18 @@ class LikesController < ApplicationController
     # end
   end
 
-
-  def destroy(post, like)
-    like.destroy if post.liked?(current_account)
-
-    # unless @post.liked?(current_account)
-    #   flash[:notice] = "Cannot unlike"
-    # else
-    #   @like.destroy
-    #   # @post.likes.delete(account_id: current_account.id
-    # end
+  def destroy
+    @like.destroy
     redirect_to dashboard_path
   end
 
   private
 
   def find_like
-    @like = Like.where(account_id: current_account.id, post_id: @post.id)
+    @like = Like.find_by(account: current_account, post: @post)
   end
 
   def find_post
-    @post = Post.find(params[:post_id])
+    @post = Post.find(params[:id] || params[:post_id])
   end
 end

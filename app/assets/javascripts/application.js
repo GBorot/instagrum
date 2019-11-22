@@ -15,4 +15,6 @@
 //= require activestorage
 //= require bootstrap.min
 //= require fontawesome.min
+//= require jquery
+//= require jquery_ujs
 //= require_tree .

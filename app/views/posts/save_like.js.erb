@@ -1,0 +1,19 @@
+function toggleHeart() {
+  const postCard = document.querySelector('[data-id="<%= @post.id %>"]');
+  const heart = machineCard.querySelector('a.like-post');
+  if (heart.href.includes('add')) {
+    heart.outerHTML = `
+      <%= link_to unlike_post_path(post), remote: true, method: :delete, class: "action-btn like-post", data: { id: post.id } do %>
+        <%= image_tag('heart_filled.svg') %>
+      <% end %>
+    `
+  } else {
+    heart.outerHTML = `
+      <%= link_to like_post_path(post), remote: true, class: "action-btn like-post", data: { id: post.id } do %>
+        <%= image_tag('heart.svg') %>
+      <% end %>
+    `
+  }
+}
+​
+toggleHeart();

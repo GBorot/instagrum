@@ -18,7 +18,7 @@ gem 'devise', '~> 4.7', '>= 4.7.1'
 # upload images with cloudinary
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary', '~> 1.9.1'
-gem 'carrierwave', '~> 1.2'
+gem 'carrierwave', '~> 1.3'
 gem "mini_magick" # allows to resize all pic uploaded
 
 
